@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://antonina-4dz3flgt.manus.space/sitemap.xml
