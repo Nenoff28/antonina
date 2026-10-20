@@ -1,8 +1,10 @@
 # Антонина Петрова — психолог
 
-Самостоятелна статична версия на сайта, публикувана чрез GitHub Pages.
+Самостоятелният статичен изход на сайта е качен в това публично хранилище. Основната работеща версия остава на Manus:
 
-- GitHub Pages: https://nenoff28.github.io/antonina/
-- Основен каноничен сайт: https://antonina-4dz3flgt.manus.space/
+- Основен сайт: https://antonina-4dz3flgt.manus.space/
+- GitHub repository: https://github.com/Nenoff28/antonina
 
-Файловете в корена са готовият статичен изход. Пътищата към assets са относителни, за да работят под `/antonina/`. Основната SEO canonical остава на главния домейн в Manus.
+**GitHub Pages още не е активиран.** Опитът за включването му през свързаното GitHub разрешение бе отказан с HTTP 403. За да публикувате копието и на GitHub Pages, отворете `Settings → Pages → Build and deployment`, изберете `Deploy from a branch`, branch `main` и folder `/(root)`, после запазете. Очакваният адрес е `https://nenoff28.github.io/antonina/`.
+
+HTML, CSS, JavaScript, изображенията и шрифтовете използват относителни пътища за project URL `/antonina/`. SEO canonical-ът умишлено сочи към основния сайт в Manus.
