@@ -33,6 +33,61 @@
 .social-links>div{display:flex;align-items:center;gap:13px}.social-link{display:grid;place-items:center;width:50px;height:50px;padding:3px;border:1px solid #bdc8b0;border-radius:50%;background:var(--paper);transition:transform .2s,box-shadow .2s,border-color .2s}.social-link img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}.social-link:hover{transform:translateY(-2px);border-color:var(--sage);box-shadow:0 5px 14px #29312b14}.social-link:focus-visible{outline:3px solid var(--terra);outline-offset:4px}
 
 
+/* ===== Readability & WCAG 2.2 AA layer (audit 16.11.2026) =====
+   Muted text darkened to reach >=4.5:1 on every section background,
+   minimum font sizes raised, input borders and touch targets made clearer. */
+:root{--muted:#5c645b}
+.tiny-label{color:var(--muted)}
+input::placeholder,textarea::placeholder{color:#6a7266;font-size:13px}
+@media(max-width:767px){input::placeholder,textarea::placeholder{font-size:15px}}
+@media(max-width:360px){.hero-actions{flex-direction:column;align-items:flex-start;gap:16px}.hero-actions .btn{width:100%;justify-content:space-between}}
+input:not([type=checkbox]),textarea{border-color:#8a9482}
+input:not([type=checkbox]):hover,textarea:hover{border-color:var(--sage-dark)}
+.intro-band em{color:var(--sage-dark)}
+.eyebrow,.kicker,.pill,.tiny-label{font-size:11px}
+.brand-name small{font-size:10px}
+.scroll-hint,.hero-trust,.portrait-caption p,.contact-small,.social-links>p,.timeline-date,.booking-note,.document-desc,.form-mode,.sensitive-note,.consent,.footer-bottom,.review-full summary,.field>label{font-size:12px}
+.contact-small{font-size:12px!important}
+.contact-method small,.excerpt-label,.field label small,.form-row label small{font-size:11px}
+.review-author strong{font-size:13px}
+.emergency-note{font-size:13px;color:var(--ink)}
+.review-full summary{min-height:32px;padding-block:6px;margin-bottom:10px}
+.footer-bottom nav a,.footer-bottom p a{display:inline-block;padding-block:6px}
+.consent{padding-block:4px}
+.consent input{width:18px;height:18px}
+@media(max-width:767px){
+  .eyebrow,.kicker,.pill{font-size:11px}
+  .brand-name small{font-size:9px;letter-spacing:1.5px}
+  .header-cta{font-size:11px;padding:10px 12px}
+  .menu-button{width:44px;height:44px}
+  .hero-actions .btn{font-size:13px}
+  .hero-actions .text-link{font-size:12px}
+  .hero-trust,.scroll-hint,.portrait-caption p,.document-desc,.timeline-date,.service-benefits h3{font-size:12px}
+  .portrait-caption>span{font-size:11px}
+  .field>label{font-size:12px}
+  .footer-bottom{font-size:12px}
+}
+@media(max-width:360px){.header-cta{font-size:11px;padding:9px 10px}.header-cta .icon{display:none}.brand-name small{font-size:8px}.menu-button{width:40px;margin-right:-8px}.hero h1{font-size:39px}.hero h1 .hero-identity{font-size:12px}}
+
+/* "С какво мога да помогна" — topics from the owner's published Superdoc profile. */
+.topics-section{background:var(--paper);border-block:1px solid var(--line)}
+.topics-intro{max-width:620px;font-size:15px;color:var(--muted);margin:-10px 0 34px}
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin:0;padding:0;list-style:none}
+.topic{padding:24px 22px 22px;background:var(--cream);border:1px solid var(--line);border-radius:6px;border-top:3px solid #b6c1ab}
+.topic h3{font-size:20px;line-height:1.3;margin-bottom:10px}
+.topic p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}
+.topics-cta{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:34px}
+.topics-note{font-size:13px;color:var(--muted);margin:0}
+@media(max-width:767px){.topics-grid{grid-template-columns:1fr;gap:12px}.topic{padding:20px 18px}.topics-intro{font-size:14px;margin-bottom:26px}}
+
+/* Superdoc booking link: transparent logo on the section background + clear arrow. */
+.superdoc-link{display:inline-flex;align-items:center;gap:18px;width:auto;max-width:100%;min-height:0;margin-top:26px;padding:10px 0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.superdoc-link img{width:190px;height:auto;max-width:calc(100% - 60px);object-fit:contain;mix-blend-mode:normal;filter:none}
+.superdoc-link>.superdoc-arrow{width:42px;height:42px;padding:11px;border:1px solid #bdc8b0;border-radius:50%;color:var(--sage-dark);transition:background .2s,border-color .2s,color .2s,transform .2s}
+.superdoc-link:hover>.superdoc-arrow{background:var(--terra);border-color:var(--terra);color:#fff;transform:translate(2px,-2px)}
+.superdoc-link:focus-visible{outline:3px solid var(--terra);outline-offset:6px;border-radius:4px}
+@media(max-width:767px){.superdoc-link{width:auto}.superdoc-link img{width:170px}}
+
 /* No decorative frame around the owner-provided social logos. */
 .social-link{width:50px;height:50px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transition:transform .2s}
 .social-link img{width:100%;height:100%;object-fit:contain;border-radius:0}

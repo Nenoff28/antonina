@@ -34,7 +34,7 @@ if (dialog) {
       image.src = button.dataset.document;
       image.alt = button.dataset.title;
       title.textContent = button.dataset.title;
-      download.href = button.dataset.document;
+      download.href = button.dataset.original || button.dataset.document;
       dialog.showModal();
       document.body.classList.add('dialog-open');
     });
