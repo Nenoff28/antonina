@@ -103,7 +103,7 @@ if (form) {
       status.textContent = 'Имейлът е подготвен. Изпратете го от пощенската си програма. Ако тя не се отвори, пишете директно на ' + form.dataset.email + '.';
       return;
     }
-    if (!/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(endpoint)) {
+    if (!/^https:\/\/formsubmit\.co\/ajax\/[^\s/?#]+$/.test(endpoint)) {
       status.textContent = 'Изпращането не е настроено правилно. Моля, използвайте директния имейл или телефона.';
       return;
     }
@@ -111,11 +111,13 @@ if (form) {
     submitButton.textContent = 'Изпращане…';
     try {
       const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-      if (!response.ok) throw new Error('submission_failed');
+      // FormSubmit answers 200 with success "false" (e.g. before activation), so check the body too.
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== 'true') throw new Error('submission_failed');
       status.textContent = 'Запитването е изпратено успешно. Това не е автоматично потвърждение на час.';
       form.reset();
     } catch {
-      status.textContent = 'Запитването не беше изпратено. Опитайте отново или използвайте директния имейл/телефон. Данните ви остават във формата.';
+      status.textContent = 'Запитването не беше изпратено. Опитайте отново или ми пишете директно на ' + form.dataset.email + '. Данните ви остават във формата.';
     } finally {
       submitButton.disabled = false;
       submitButton.innerHTML = originalButtonHtml;
