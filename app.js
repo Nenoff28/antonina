@@ -102,8 +102,13 @@ if (form) {
     }
     submitButton.disabled = true;
     submitButton.textContent = 'Изпращане…';
+    status.textContent = 'Изпращане…';
+    // FormSubmit sometimes takes 15-45 s to answer: tell the visitor to wait, and give up after 60 s.
+    const controller = new AbortController();
+    const slowTimer = setTimeout(() => { status.textContent = 'Изпращането отнема малко повече време. Моля, изчакайте и не затваряйте страницата.'; }, 6000);
+    const abortTimer = setTimeout(() => controller.abort(), 60000);
     try {
-      const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }, signal: controller.signal });
       // FormSubmit answers 200 with success "false" (e.g. before activation), so check the body too.
       const result = await response.json().catch(() => ({}));
       if (!response.ok || String(result.success) !== 'true') throw new Error('submission_failed');
@@ -112,6 +117,8 @@ if (form) {
     } catch {
       status.textContent = 'Запитването не беше изпратено. Опитайте отново или ми пишете директно на ' + form.dataset.email + '. Данните ви остават във формата.';
     } finally {
+      clearTimeout(slowTimer);
+      clearTimeout(abortTimer);
       submitButton.disabled = false;
       submitButton.innerHTML = originalButtonHtml;
     }
