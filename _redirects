@@ -1,0 +1,10 @@
+# Old site (Shopify) URLs still in Google's index -> new pages (Cloudflare Pages format)
+/pages/*        /           301
+/policies/*     /privacy    301
+/products/*     /           301
+/collections/*  /           301
+/blogs/*        /           301
+/cart           /           301
+/cart/*         /           301
+/account        /           301
+/account/*      /           301
