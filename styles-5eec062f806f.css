@@ -93,3 +93,16 @@ input:not([type=checkbox]):hover,textarea:hover{border-color:var(--sage-dark)}
 .social-link img{width:100%;height:100%;object-fit:contain;border-radius:0}
 .social-link:hover{transform:translateY(-2px);border:0;background:transparent;box-shadow:none}
 .social-link:focus-visible{outline:3px solid var(--terra);outline-offset:4px}
+
+/* Header phone link */
+.header-phone{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600;font-size:15px;white-space:nowrap;text-decoration:none;min-height:44px}
+.header-phone .icon{width:20px;height:20px;color:var(--terra)}
+.header-phone:hover span,.header-phone:focus-visible span{color:var(--terra)}
+@media(max-width:1300px){.header-phone span{display:none}.header-phone{justify-content:center;width:44px;border:1px solid var(--line);border-radius:50%}}
+@media(max-width:360px){.header-phone{width:40px;min-height:40px}}
+.desktop-nav a{white-space:nowrap}.header-phone{flex-shrink:0}
+@media(min-width:1101px) and (max-width:1300px){.desktop-nav{gap:18px}.header-inner{gap:22px}}
+/* Mobile: the call button takes the booking button's place; booking stays in the menu and the hero. */
+@media(max-width:1100px){.header-phone{margin-left:auto}}
+@media(max-width:767px){.header-cta{display:none}}
+@media(max-width:1100px){.header-cta{margin-left:0}}

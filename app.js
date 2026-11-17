@@ -96,14 +96,7 @@ if (form) {
     if (firstInvalid) { status.textContent = 'Проверете отбелязаните полета.'; firstInvalid.focus(); return; }
     if (document.getElementById('website').value) { status.textContent = 'Запитването не може да бъде обработено.'; return; }
     const endpoint = form.dataset.endpoint;
-    if (!endpoint) {
-      const body = `Име: ${document.getElementById('name').value.trim()}\nИмейл: ${document.getElementById('email').value.trim()}\nТелефон: ${document.getElementById('phone').value.trim() || 'Не е посочен'}\n\n${document.getElementById('message').value.trim()}\n\nСъгласие: данните да бъдат използвани за отговор на това запитване.`;
-      const href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('Запитване за онлайн консултация')}&body=${encodeURIComponent(body)}`;
-      window.location.href = href;
-      status.textContent = 'Имейлът е подготвен. Изпратете го от пощенската си програма. Ако тя не се отвори, пишете директно на ' + form.dataset.email + '.';
-      return;
-    }
-    if (!/^https:\/\/formsubmit\.co\/ajax\/[^\s/?#]+$/.test(endpoint)) {
+    if (!/^https:\/\/formsubmit\.co\/ajax\/[^\s/?#]+$/.test(endpoint || '')) {
       status.textContent = 'Изпращането не е настроено правилно. Моля, използвайте директния имейл или телефона.';
       return;
     }
@@ -114,7 +107,7 @@ if (form) {
       // FormSubmit answers 200 with success "false" (e.g. before activation), so check the body too.
       const result = await response.json().catch(() => ({}));
       if (!response.ok || String(result.success) !== 'true') throw new Error('submission_failed');
-      status.textContent = 'Запитването е изпратено успешно. Това не е автоматично потвърждение на час.';
+      status.textContent = 'Благодаря! Запитването ви е изпратено успешно. Ще ви отговоря на посочения имейл.';
       form.reset();
     } catch {
       status.textContent = 'Запитването не беше изпратено. Опитайте отново или ми пишете директно на ' + form.dataset.email + '. Данните ви остават във формата.';
