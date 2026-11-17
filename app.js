@@ -69,7 +69,7 @@ if (form) {
     if (id === 'phone' && el.value.trim() && !/^\+?[\d\s()\-]{6,30}$/.test(el.value.trim())) return 'Моля, въведете валиден телефон или оставете полето празно.';
     if (id === 'email' && (!el.value.trim() || !el.validity.valid)) return 'Моля, въведете валиден имейл адрес.';
     if (id === 'message' && el.value.trim().length < 10) return 'Моля, въведете кратко запитване с поне 10 символа.';
-    if (id === 'consent' && !el.checked) return 'Необходимо е съгласие за обработване на данните за отговор.';
+    if (id === 'consent' && !el.checked) return 'Отбележете, че сте съгласни данните ви да се използват за отговор.';
     return '';
   }
   function displayError(id, message) {
