@@ -26,13 +26,6 @@
 .hero h1 .hero-identity{display:block;font-family:var(--sans);font-size:14px;font-weight:600;line-height:1.6;letter-spacing:.025em;color:var(--sage-dark);margin-bottom:18px}
 @media(max-width:767px){.hero h1 .hero-identity{font-size:13px;margin-bottom:15px}}
 
-/* Clear, keyboard-visible social profile links in the contact area. */
-.social-links{margin-top:18px;padding-top:17px;border-top:1px solid #cbd3c1}.social-links>p{font-size:10px;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}.social-links>div{display:flex;flex-wrap:wrap;gap:10px}.social-link{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:var(--paper);border:1px solid #d5ddcb;border-radius:30px;font-size:12px;font-weight:600;transition:background .2s,border-color .2s,color .2s}.social-link:hover{background:#edf0e8;border-color:#aebba3;color:var(--sage-dark)}.social-link .icon{width:14px;height:14px}
-
-/* Use the exact supplied platform logos instead of text pills. */
-.social-links>div{display:flex;align-items:center;gap:13px}.social-link{display:grid;place-items:center;width:50px;height:50px;padding:3px;border:1px solid #bdc8b0;border-radius:50%;background:var(--paper);transition:transform .2s,box-shadow .2s,border-color .2s}.social-link img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}.social-link:hover{transform:translateY(-2px);border-color:var(--sage);box-shadow:0 5px 14px #29312b14}.social-link:focus-visible{outline:3px solid var(--terra);outline-offset:4px}
-
-
 /* ===== Readability & WCAG 2.2 AA layer (audit 16.11.2026) =====
    Muted text darkened to reach >=4.5:1 on every section background,
    minimum font sizes raised, input borders and touch targets made clearer. */
@@ -80,20 +73,6 @@ input:not([type=checkbox]):hover,textarea:hover{border-color:var(--sage-dark)}
 .topics-note{font-size:13px;color:var(--muted);margin:0}
 @media(max-width:767px){.topics-grid{grid-template-columns:1fr;gap:12px}.topic{padding:20px 18px}.topics-intro{font-size:14px;margin-bottom:26px}}
 
-/* Superdoc booking link: transparent logo on the section background + clear arrow. */
-.superdoc-link{display:inline-flex;align-items:center;gap:18px;width:auto;max-width:100%;min-height:0;margin-top:26px;padding:10px 0;background:transparent;border:0;border-radius:0;box-shadow:none}
-.superdoc-link img{width:190px;height:auto;max-width:calc(100% - 60px);object-fit:contain;mix-blend-mode:normal;filter:none}
-.superdoc-link>.superdoc-arrow{width:42px;height:42px;padding:11px;border:1px solid #bdc8b0;border-radius:50%;color:var(--sage-dark);transition:background .2s,border-color .2s,color .2s,transform .2s}
-.superdoc-link:hover>.superdoc-arrow{background:var(--terra);border-color:var(--terra);color:#fff;transform:translate(2px,-2px)}
-.superdoc-link:focus-visible{outline:3px solid var(--terra);outline-offset:6px;border-radius:4px}
-@media(max-width:767px){.superdoc-link{width:auto}.superdoc-link img{width:170px}}
-
-/* No decorative frame around the owner-provided social logos. */
-.social-link{width:50px;height:50px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transition:transform .2s}
-.social-link img{width:100%;height:100%;object-fit:contain;border-radius:0}
-.social-link:hover{transform:translateY(-2px);border:0;background:transparent;box-shadow:none}
-.social-link:focus-visible{outline:3px solid var(--terra);outline-offset:4px}
-
 /* Header phone link */
 .header-phone{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600;font-size:15px;white-space:nowrap;text-decoration:none;min-height:44px}
 .header-phone .icon{width:20px;height:20px;color:var(--terra)}
@@ -106,3 +85,12 @@ input:not([type=checkbox]):hover,textarea:hover{border-color:var(--sage-dark)}
 @media(max-width:1100px){.header-phone{margin-left:auto}}
 @media(max-width:767px){.header-cta{display:none}}
 @media(max-width:1100px){.header-cta{margin-left:0}}
+
+/* Superdoc and social rows share the phone/email row style. */
+.contact-method .superdoc-logo{display:block;width:118px;height:auto;margin-top:7px}
+.social-icons{display:flex;gap:10px;margin-top:7px}
+.social-icon{display:block;width:34px;height:34px;border-radius:50%;transition:transform .2s}
+.social-icon img{display:block;width:100%;height:100%}
+.social-icon:hover{transform:translateY(-2px)}
+.social-icon:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.contact-small{font-style:normal;color:var(--muted)}
