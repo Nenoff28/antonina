@@ -1,0 +1,12 @@
+// Same as the config Cloudflare generated on deploy, plus serving 404.html for missing pages.
+{
+  "name": "antonina",
+  "compatibility_date": "2026-11-17",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}
