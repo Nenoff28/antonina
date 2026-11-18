@@ -94,3 +94,8 @@ input:not([type=checkbox]):hover,textarea:hover{border-color:var(--sage-dark)}
 .social-icon:hover{transform:translateY(-2px)}
 .social-icon:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
 .contact-small{font-style:normal;color:var(--muted)}
+/* Phone and email values at the same size. */
+.contact-method strong,.contact-method .email-value{font-size:18px}
+@media(max-width:1100px){.contact-method strong,.contact-method .email-value{font-size:16px}}
+@media(max-width:400px){.contact-method strong,.contact-method .email-value{font-size:14.5px}}
+.contact-method .email-value{overflow-wrap:normal}
